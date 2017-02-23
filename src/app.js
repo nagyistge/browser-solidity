@@ -623,6 +623,14 @@ var run = function () {
 
   udapp.event.register('publishContract', this, function (contract) {
     console.log('Publish contract...', contract)
+    swarmgw.put(contract.metadata, function (err, ret) {
+      if (err) {
+        alert('Failed to publish metadata: ' + err)
+      } else {
+        alert('Published metadata: ' + ret)
+      }
+    })
+    // publish each contract source
     alert('Publishing a contract is not supported yet.')
   })
 
